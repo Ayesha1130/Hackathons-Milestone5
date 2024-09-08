@@ -113,27 +113,40 @@ footer p{
     margin: 20px auto;
     }
 
-/* Basic Mobile Design */
+/* Media Queries for Mobile Devices */
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
-        width: 90%;
+    #resume-form,
+    #resume-content,
+    footer p {
+        width: 90%; /* Adjust width for mobile devices */
     }
 
     h2 {
-        font-size: 22px;
+        font-size: 20px; /* Smaller font size for mobile */
     }
 
     input[type="text"],
     input[type="email"],
     input[type="tel"],
     textarea {
-        padding: 12px;
+        width: 100%; /* Ensure inputs are full-width */
     }
 
     button {
-        width: 100%;
-        padding: 12px;
+        padding: 8px 12px; /* Adjust padding for smaller screens */
+    }
+
+    #download-pdf {
+        position: static; /* Remove left positioning for better centering */
     }
 }
 
+@media (max-width: 480px) {
+    h2 {
+        font-size: 18px; /* Even smaller font size for very small screens */
+    }
+
+    textarea {
+        height: 80px; /* Adjust height for smaller screens */
+    }
+}
