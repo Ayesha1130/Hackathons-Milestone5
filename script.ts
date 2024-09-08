@@ -8,6 +8,7 @@ const resumeLink = document.getElementById('resume-link') as HTMLParagraphElemen
 form.addEventListener('submit', (event: Event) => {
     event.preventDefault();
 
+   
     const username = (document.getElementById('username') as HTMLInputElement).value;
     const name = (document.getElementById('name') as HTMLInputElement).value;
     const email = (document.getElementById('email') as HTMLInputElement).value;
@@ -16,7 +17,7 @@ form.addEventListener('submit', (event: Event) => {
     const workExperience = (document.getElementById('work-experience') as HTMLTextAreaElement).value;
     const skills = (document.getElementById('skills') as HTMLInputElement).value;
 
-    if (!username || !name || !email || !phone || !education || !workExperience || !skills) {
+    if (!name || !email || !phone || !education || !workExperience || !skills) {
         alert("Please fill out all fields.");
         return;
     }

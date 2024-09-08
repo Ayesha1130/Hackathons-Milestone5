@@ -93,6 +93,11 @@ button:hover {
     margin: 20px auto;
     
 }
+#resume-link{
+    position: relative;
+    left: 22%;
+    margin-bottom: 20px;
+}
 #download-pdf {
     position: relative;
     left: 22%;

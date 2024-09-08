@@ -12,35 +12,30 @@ form.addEventListener('submit', (event) => {
     const education = document.getElementById('education').value;
     const workExperience = document.getElementById('work-experience').value;
     const skills = document.getElementById('skills').value;
-    if (!username || !name || !email || !phone || !education || !workExperience || !skills) {
+    if (!name || !email || !phone || !education || !workExperience || !skills) {
         alert("Please fill out all fields.");
         return;
     }
     const resumeHTML = `
-        <div>
-            <h2>Personal Information</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
-            <p><strong>Phone:</strong> ${phone}</p>
+        <h3 contenteditable="true">Personal Information</h3>
+        <p><strong>Name:</strong> <span contenteditable="true">${name}</span></p>
+        <p><strong>Email:</strong> <a href="mailto:${email}" contenteditable="true">${email}</a></p>
+        <p><strong>Phone:</strong> <span contenteditable="true">${phone}</span></p>
 
-            <h2>Education</h2>
-            <p>${education}</p>
+        <h3 contenteditable="true">Education</h3>
+        <p contenteditable="true">${education}</p>
 
-            <h2>Work Experience</h2>
-            <p>${workExperience}</p>
+        <h3 contenteditable="true">Work Experience</h3>
+        <p contenteditable="true">${workExperience}</p>
 
-            <h2>Skills</h2>
-            <ul>
-                ${skills.split(',').map(skill => `<li>${skill.trim()}</li>`).join('')}
-            </ul>
-        </div>
+        <h3 contenteditable="true">Skills</h3>
+        <ul>
+            ${skills.split(',').map(skill => `<li contenteditable="true">${skill.trim()}</li>`).join('')}
+        </ul>
     `;
     resumeContent.innerHTML = resumeHTML;
-    resumeContent.classList.remove('hidden');
-    const uniqueUrl = `https://example.com/resume/${username}`;
+    const uniqueUrl = `https://${username}.vercel.app/resume`;
     resumeLink.innerHTML = `Share your resume: <a href="${uniqueUrl}" target="_blank">${uniqueUrl}</a>`;
-    resumeLink.classList.remove('hidden');
-    downloadPdfButton.classList.remove('hidden');
 });
 downloadPdfButton.addEventListener('click', () => {
     if (typeof html2pdf === 'undefined') {
@@ -50,7 +45,7 @@ downloadPdfButton.addEventListener('click', () => {
     const resumeOptions = {
         margin: 1,
         filename: 'resume.pdf',
-        image: { type: 'jpeg', quality: 0.95 },
+        image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2 },
         jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
     };
