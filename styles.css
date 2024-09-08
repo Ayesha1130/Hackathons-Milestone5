@@ -103,6 +103,15 @@ button:hover {
     border: 2px dashed #007bff; /* Visual indication that the content is editable */
     align-items: center;
 }
+footer p{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #333;
+    color: white;
+    width: 700px;
+    margin: 20px auto;
+    }
 
 /* Basic Mobile Design */
 @media (max-width: 768px) {
