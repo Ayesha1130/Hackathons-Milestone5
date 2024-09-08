@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@types/jspdf": "^2.0.0",
+    "jspdf": "^2.5.1"
+  },
+  "name": "milestone5",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
