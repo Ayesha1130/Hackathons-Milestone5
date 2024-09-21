@@ -35,7 +35,9 @@ h2 {
 form {
     margin-bottom: 20px;
 }
-
+legend{
+    text-align: center;
+}
 label {
     display: block;
     margin-bottom: 5px;
@@ -88,21 +90,28 @@ button:hover {
     
 }
 #resume-link{
-    position: relative;
-    left: 43%;
-    top: -20px;
+    position: absolute;
+    left: 30%;
     margin-bottom: 20px;
     text-decoration: none;
     color:rgb(12, 65, 227);
-    font-size: 18px;
+   
     
 }
+
 #download-pdf {
-    position: relative;
+    background-color: #485c70;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    position: absolute;
     left: 30%;
-    top: 20px;
     margin-bottom: 20px;
-    padding: 20px;
+    margin-top: 30px;
+   
 
 }
 
@@ -120,5 +129,7 @@ footer p{
     max-width: 600px;
     margin: 20px auto;
     }
-
+footer{
+    margin-top: 100px;
+}
 
