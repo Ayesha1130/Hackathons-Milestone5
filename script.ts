@@ -1,64 +1,77 @@
+// Define HTML2pdf library
 declare const html2pdf: any;
 
-const form = document.getElementById('resume-form') as HTMLFormElement;
-const resumeContent = document.getElementById('resume-content') as HTMLDivElement;
-const downloadPdfButton = document.getElementById('download-pdf') as HTMLButtonElement;
-const resumeLink = document.getElementById('resume-link') as HTMLParagraphElement;
+//GET reference to the html element
+const form = document.getElementById("resume-form") as HTMLFormElement;
+const resumeContent = document.getElementById(
+  "resume-content"
+) as HTMLDivElement;
+const downloadPdfButton = document.getElementById(
+  "download-pdf"
+) as HTMLButtonElement;
+const resumeLink = document.getElementById(
+  "resume-link"
+) as HTMLAnchorElement;
+ 
+// Event listener for form submission
+form.addEventListener("submit", (event: Event) => {
+  event.preventDefault();// prevent default submit 
 
-form.addEventListener('submit', (event: Event) => {
-    event.preventDefault();
+  // Get form data
+  const username = (document.getElementById("username") as HTMLInputElement)
+    .value;
+  const name = (document.getElementById("name") as HTMLInputElement).value;
+  const email = (document.getElementById("email") as HTMLInputElement).value;
+  const phone = (document.getElementById("phone") as HTMLInputElement).value;
+  const education = (
+    document.getElementById("education") as HTMLTextAreaElement
+  ).value;
+  const workExperience = (
+    document.getElementById("work-experience") as HTMLTextAreaElement
+  ).value;
+  const skills = (document.getElementById("skills") as HTMLInputElement).value;
 
-   
-    const username = (document.getElementById('username') as HTMLInputElement).value;
-    const name = (document.getElementById('name') as HTMLInputElement).value;
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const phone = (document.getElementById('phone') as HTMLInputElement).value;
-    const education = (document.getElementById('education') as HTMLTextAreaElement).value;
-    const workExperience = (document.getElementById('work-experience') as HTMLTextAreaElement).value;
-    const skills = (document.getElementById('skills') as HTMLInputElement).value;
+  // Validate form data
+  if (!name || !email || !phone || !education || !workExperience || !skills) {
+    alert("Please fill out all fields.");
+    return;
+  }
+// Create HTML for the resume
+  const resumeHTML = `
+    
+     <form>
+     <fieldset>
+     <legend>Shareable Resume</legend>
+     <label for="name">Name:</label>
+     <input type="text" id="name" value="${name}">
+     <label for="email">Email:</label>
+     <input type="text" id="email" value="${email}">
+     <label for="phone">Phone:</label>
+     <input type="text" id="phone" value="${phone}">
+     <label for="education">Education:</label>
+     <input type="text" id="education" value="${education}">
+     <label for="experience">Experience:</label>
+     <input type="text" id="work-experience" value="${workExperience}">
+     <label for="skills">Skills:</label>
+     <input type="text" id="skills" value="${skills}">
+     </fieldset>
 
-    if (!name || !email || !phone || !education || !workExperience || !skills) {
-        alert("Please fill out all fields.");
-        return;
-    }
-
-    const resumeHTML = `
-        <h3 contenteditable="true">Personal Information</h3>
-        <p><strong>Name:</strong> <span contenteditable="true">${name}</span></p>
-        <p><strong>Email:</strong> <a href="mailto:${email}" contenteditable="true">${email}</a></p>
-        <p><strong>Phone:</strong> <span contenteditable="true">${phone}</span></p>
-
-        <h3 contenteditable="true">Education</h3>
-        <p contenteditable="true">${education}</p>
-
-        <h3 contenteditable="true">Work Experience</h3>
-        <p contenteditable="true">${workExperience}</p>
-
-        <h3 contenteditable="true">Skills</h3>
-        <ul>
-            ${skills.split(',').map(skill => `<li contenteditable="true">${skill.trim()}</li>`).join('')}
-        </ul>
+     </form>    
+    
     `;
 
-    resumeContent.innerHTML = resumeHTML;
+  resumeContent.innerHTML = resumeHTML;
 
-    const uniqueUrl = `https://${username}.vercel.app/resume`;
-    resumeLink.innerHTML = `Share your resume: <a href="${uniqueUrl}" target="_blank">${uniqueUrl}</a>`;
+  const shareablelink = document.getElementById(
+    "resume-link"
+  ) as HTMLAnchorElement;
+
+  shareablelink.addEventListener("click", () => {});
 });
 
-downloadPdfButton.addEventListener('click', () => {
-    if (typeof html2pdf === 'undefined') {
-        alert('Error: html2pdf library is not loaded.');
-        return;
-    }
-
-    const resumeOptions = {
-        margin: 1,
-        filename: 'resume.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-    };
-
-    html2pdf().from(resumeContent).set(resumeOptions).save();
+const downloadbutton = document.getElementById("download-pdf") as HTMLButtonElement;
+downloadbutton.addEventListener("click", () => {
+  window.print();
 });
+
+

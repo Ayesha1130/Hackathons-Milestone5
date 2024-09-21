@@ -4,13 +4,16 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
+body{
+    background-color: #AAB396;
+
+}
 
 /* form Styling */
-#resume-form{
-    max-width: 700px;
+fieldset{
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f8f9fa;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     align-items: center;
@@ -42,7 +45,7 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 textarea {
-    width: 650px;
+    width:100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -70,27 +73,37 @@ button:hover {
 }
 
 /* Resume Content Styling */
-#resume-content {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-    min-height: 200px; /* Ensures there's enough space to see the content */
-    cursor: text; /* Indicates the content is editable */
-    align-items: center;
-    width: 700px;
+ #resume-content {
+    max-width: 600px;
     margin: 20px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    height: auto;
+    text-decoration: none;
+    margin-bottom: 20px;
+    
+
     
 }
 #resume-link{
     position: relative;
-    left: 22%;
+    left: 43%;
+    top: -20px;
     margin-bottom: 20px;
+    text-decoration: none;
+    color:rgb(12, 65, 227);
+    font-size: 18px;
+    
 }
 #download-pdf {
     position: relative;
-    left: 23%;
+    left: 30%;
+    top: 20px;
     margin-bottom: 20px;
+    padding: 20px;
+
 }
 
 /* Editable Section Styling */
@@ -104,44 +117,8 @@ footer p{
     margin-bottom: 20px;
     background-color: #333;
     color: white;
-    width: 700px;
+    max-width: 600px;
     margin: 20px auto;
     }
 
-/* Media Queries for Mobile Devices */
-@media (max-width: 768px) {
-    #resume-form,
-    #resume-content,
-    footer p {
-        width: 90%; /* Adjust width for mobile devices */
-    }
 
-    h2 {
-        font-size: 20px; /* Smaller font size for mobile */
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    textarea {
-        width: 100%; /* Ensure inputs are full-width */
-    }
-
-    button {
-        padding: 8px 12px; /* Adjust padding for smaller screens */
-    }
-
-    #download-pdf {
-        position: static; /* Remove left positioning for better centering */
-    }
-}
-
-@media (max-width: 480px) {
-    h2 {
-        font-size: 18px; /* Even smaller font size for very small screens */
-    }
-
-    textarea {
-        height: 80px; /* Adjust height for smaller screens */
-    }
-}
